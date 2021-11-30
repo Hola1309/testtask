@@ -1,0 +1,50 @@
+{% load static %}
+<header>
+    <div class="uploadInput"><form method="post" class="input" enctype="multipart/form-data">{% csrf_token %}<input id="uploadButton" type="file" name="document"><button type="submit" id='submitButton'>Upload</button></form></div>
+</header>
+{{ errorMessage }}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Код</th>
+            <th>Наименование</th>
+            <th>Уровень1</th>
+            <th>Уровень2</th>
+            <th>Уровень3</th>
+            <th>Цена</th>
+            <th>ЦенаСП</th>
+            <th>Количество</th>
+            <th>Поля свойств</th>
+            <th>Совместные покупки</th>
+            <th>Единица измерения</th>
+            <th>Картинка</th>
+            <th>Выводить на главной</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in datatest %}
+            <tr>
+                <td>{{ i.code }}</td>
+                <td>{{ i.Name }}</td>
+                <td>{{ i.Lvl1 }}</td>
+                <td>{{ i.Lvl2 }}</td>
+                <td>{{ i.Lvl3 }}</td>
+                <td>{{ i.Cost }}</td>
+                <td>{{ i.CostSP }}</td>
+                <td>{{ i.Count }}</td>
+                <td>{{ i.FieldProp }}</td>
+                <td>{{ i.Purch }}</td>
+                <td>{{ i.Unit }}</td>
+                <td>{{ i.Img }}</td>
+                <td>{{ i.Display }}</td>
+                <td>{{ i.Desc }}</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+<script src="{% static 'scripts.js'%}"></script>.
+<link rel="stylesheet" href="{% static 'stylesheet.css'%}" type="text/css">
+
+</style>
